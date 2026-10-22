@@ -2,21 +2,25 @@
 
 Single source of truth for UI. Source canvas (Claude Design): https://claude.ai/artifact/9R8bp8TAgJi2M9WPmgTBB6 (private). Dark, cinematic, one accent.
 
-## Color tokens (dark only in v1)
+## Color tokens (dark only in v1, Enz Softwares brand blue)
+
+Source of the blues: enzsoftwares-site/public/style.css and curbside/MARCA.md.
 
 | token | value | use |
 |---|---|---|
-| --bg | #07080B | page background |
-| --surface | #0B0D12 | cards, panels |
-| --surface-2 | #12151C | media placeholders, raised |
-| --line | #1E212B | hairlines |
-| --line-strong | #2A2E3A | outlines, chips |
-| --text | #EDEEF2 | primary text |
-| --muted | #9AA0AE | secondary text (>= 7:1 on --bg) |
-| --accent | #C6FF3D | CTAs, active state, highlights (tweakable) |
-| --on-accent | #07080B | text on accent |
+| --bg | #0B1220 | page background (brand navy) |
+| --surface | #0E1728 | cards, panels |
+| --surface-2 | #16233B | media placeholders, raised |
+| --line | #1B2A44 | hairlines |
+| --line-strong | #2A3D5E | outlines, chips |
+| --text | #E8EDF5 | primary text |
+| --muted | #9AA6B8 | secondary text (>= 7:1 on --bg) |
+| --accent | #00A7F8 | CTAs, active state, highlights (Enz brand blue, 7.4:1 on --bg) |
+| --glow | #11E5FE | cyan, lines and glow only (3D wireframe, HUD), never body text |
+| --accent-deep | #0A58D0 | optional tweak, pressed state |
+| --on-accent | #0B1220 | text on accent |
 
-Accent alternatives for the tweak: #7CF5C8, #FF7A45, #8FA2FF. Text on --muted must stay >= 4.5:1; never use --line-strong for text.
+Accent tweak options: #00A7F8, #11E5FE, #0A58D0, #8FA2FF. Text on --muted must stay >= 4.5:1; never use --line-strong for text.
 
 ## Typography
 
@@ -51,13 +55,13 @@ Home (desktop + mobile), Works index with filter, Work detail, About + Contact, 
 - Micro (hover, press): 180 ms, ease-out cubic-bezier(0.2, 0.8, 0.2, 1). Buttons rise 2 px; cards rise 4 px, cover scales 1.03, border becomes --accent.
 - Section reveal on scroll: 600 ms, opacity 0 to 1 and translateY 24 px to 0, once. List stagger 60 ms.
 - Works index to detail: shared-element transition on the cover, 500 ms.
-- Hero 3D: floating panels tilt toward the cursor (max 8 deg) and drift with scroll; resolves to the initials/logo mark when idle.
+- Hero 3D: a wireframe torus (donut), cyberpunk minimal. Thin --accent lines for the tube rings, --glow for the long rings, monospace HUD labels ("TORUS // WIREFRAME", "SCROLL ROTATE", "ROT 042") and corner brackets. Rotation is bound to scroll progress in both directions (scroll down spins forward, scroll up spins back), eased with a spring (stiffness 80, damping 20), about 0.2 deg per scroll px on the Y axis plus a slow idle drift of 4 deg/s that stops at reduced motion. No fills, no bloom, no gradients: lines only.
 - Static during reading: body text and forms never animate.
 - prefers-reduced-motion: no parallax or page transitions, only 120 ms fade; 3D replaced by a static poster.
 
 ## 3D fallbacks
 
-No WebGL, low power, data-saver, or reduced motion: static poster image, 3D chunk never fetched. Off-screen or hidden tab: pause the render loop (frameloop on demand). Poster must be present in the initial HTML.
+No WebGL, low power, data-saver, or reduced motion: static poster image (the SVG wireframe torus), 3D chunk never fetched. Off-screen or hidden tab: pause the render loop (frameloop on demand). Poster must be present in the initial HTML.
 
 ## Content rules
 

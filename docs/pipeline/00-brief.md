@@ -21,7 +21,7 @@ Source of facts: read-only extraction from the owner's own projects (2026-10-21)
 
 - Audience: owners of small and local businesses in Brazil who need a site or a small system, plus recruiters and potential clients who judge craft quickly.
 - Positioning: one engineer who ships fast, mobile-first products that end in a WhatsApp conversation, with real systems behind them (CRM, store, booking).
-- Tone: dark, cinematic, confident, short sentences. Site copy in pt-BR.
+- Tone: dark navy, cinematic, minimal cyberpunk, Enz brand blue accent, confident, short sentences. Site copy in pt-BR.
 
 ## Design principles
 
@@ -35,18 +35,20 @@ Home, Works index (filter by stack), Work detail, About, Contact.
 
 ## 3D concept
 
-Interactive hero scene: a field of small floating panels (screens) that tilt toward the cursor and drift with scroll, forming a loose constellation that resolves into the owner's initials or logo mark when idle. Static poster fallback for no WebGL, low power, and reduced motion.
+Interactive hero scene (revised by the owner): a wireframe torus (donut) that rotates as the user scrolls up or down, in a minimal cyberpunk style (thin blue and cyan lines, monospace HUD labels). Static SVG poster fallback for no WebGL, low power, and reduced motion.
 
-## Works (4)
+## Works (5)
 
 | slug | name | year | role | stack | links | cover candidate |
 |---|---|---|---|---|---|---|
 | tszr15 | TSZR15 | 2026 | Developer | Next.js 16, React 19, OpenNext on Cloudflare, Supabase, Mercado Pago, Resend, Vitest | repo github.com/Luiz192512/TSZR15; preview tsz-store-preview.enz-luizgustavo.workers.dev; production domain TODO | TSZR15/public/brand/tszr15-hero-r15-dark.webp |
 | curbside | Curbside | 2026 | Author, sole developer | Cloudflare Workers + D1, Turso, vanilla ESM, Expo/React Native, motion, Leaflet | repo github.com/Luiz192512/curbside; app curbside.enz-luizgustavo.workers.dev (internal tool, do not link a live demo with lead data) | curbside/public/icones/icone-512.png (no screenshot yet, TODO) |
 | msx-baterias | MSX Baterias | 2026 | Sole developer | Next.js 14 static export, Tailwind 3, Cloudflare Pages | bateriasmsx.com.br; repo github.com/Luiz192512/msx-baterias | msx-baterias/app/opengraph-image.png; enzsoftwares-site/public/img/msx-baterias.webp (screenshot) |
+| enz-softwares | Enz Softwares | 2026 | Owner and developer | HTML, CSS, vanilla JS, Cloudflare Workers static assets, i18n pt-BR/pt-PT/es/en, strict CSP | enzsoftwares.com | enzsoftwares-site/public/img/og.png |
 | g7-padel | Arena G7 Padel CRM | 2026 | Sole developer | Next.js 16, React 19, TypeScript, Tailwind 4, shadcn/ui, Motion, Three.js + R3F, Prisma + Neon, Recharts, PWA | g7-padel-crm.vercel.app; repo github.com/Luiz192512/g7-padel-crm | G7-padle/assets/brand/g7-padel-apresentacao.png |
 
 Short descriptions (from READMEs):
+- Enz Softwares: the owner's own institutional site: a single page in four languages whose form opens WhatsApp or email with a prefilled message.
 - TSZR15: Yamaha R15 parts and accessories store with catalog, customer account, cart, checkout that generates a WhatsApp message, Mercado Pago (Pix, card, boleto), admin panel and order tracking.
 - Curbside: international prospecting and sales CRM for one operator: company lists with filters, assisted outreach, analytics, lead collection from OpenStreetMap and Overture, scheduled robot, mobile app.
 - MSX Baterias: conversion landing page and battery finder (about 2,640 models) for an automotive battery shop in Sarandi-PR, with per-model SEO pages, blog, and WhatsApp CTAs.
