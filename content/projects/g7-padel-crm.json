@@ -1,0 +1,18 @@
+{
+  "title": "G7 Arena Padel CRM",
+  "kind": "CLIENTE, PILOTO",
+  "summary": "Piloto de CRM em Next.js 16, Prisma, Neon e R3F: agenda, financeiro e painel do dono. Os dados da demonstração são fictícios.",
+  "cover": {
+    "src": "/projects/g7-padel-crm/cover.webp",
+    "alt": "Capa do G7 Arena Padel CRM"
+  },
+  "tech": ["Next.js 16", "Prisma", "Neon", "React Three Fiber", "Motion"],
+  "features": [
+    "Agenda",
+    "Financeiro",
+    "Painel do dono"
+  ],
+  "link": { "status": "live", "url": "https://g7-padel-crm.vercel.app" },
+  "featured": false,
+  "order": 5
+}

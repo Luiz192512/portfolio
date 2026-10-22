@@ -1,0 +1,4 @@
+[
+  { "role": "Dev", "org": "Org A", "start": "2025", "end": null, "short": "Org A" },
+  { "role": "Aux", "org": "Org B", "start": "2024-02", "end": "2024-12", "short": "Org B" }
+]

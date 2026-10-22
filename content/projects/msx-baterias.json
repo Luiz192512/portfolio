@@ -1,0 +1,19 @@
+{
+  "title": "MSX Baterias",
+  "kind": "CLIENTE",
+  "summary": "Landing page mobile-first em Next.js 14 com localizador de bateria, blog, SEO local e GA4.",
+  "cover": {
+    "src": "/projects/msx-baterias/cover.webp",
+    "alt": "Capa do MSX Baterias"
+  },
+  "tech": ["Next.js 14", "GA4"],
+  "features": [
+    "Landing page mobile-first",
+    "Localizador de bateria",
+    "Blog",
+    "SEO local"
+  ],
+  "link": { "status": "live", "url": "https://bateriasmsx.com.br" },
+  "featured": false,
+  "order": 4
+}

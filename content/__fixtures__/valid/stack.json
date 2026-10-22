@@ -1,0 +1,7 @@
+{
+  "items": [
+    { "name": "PostgreSQL", "monogram": "PG", "category": "data" },
+    { "name": "TypeScript", "monogram": "TS", "category": "languages" },
+    { "name": "Go", "monogram": "GO", "category": "languages" }
+  ]
+}

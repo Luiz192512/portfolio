@@ -1,0 +1,18 @@
+{
+  "title": "Enz Softwares",
+  "kind": "SITE DA EMPRESA",
+  "summary": "Site de uma página em 4 idiomas, com formulário que monta a mensagem para WhatsApp ou e-mail, servido por Cloudflare Worker com CSP.",
+  "cover": {
+    "src": "/projects/enz-softwares/cover.webp",
+    "alt": "Capa do site Enz Softwares"
+  },
+  "tech": ["Cloudflare Workers", "CSP"],
+  "features": [
+    "Site de uma página em 4 idiomas",
+    "Formulário que monta a mensagem para WhatsApp ou e-mail",
+    "Servido por Cloudflare Worker com CSP"
+  ],
+  "link": { "status": "live", "url": "https://enzsoftwares.com" },
+  "featured": false,
+  "order": 2
+}

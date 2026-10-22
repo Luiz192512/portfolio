@@ -1,0 +1,57 @@
+{
+  "name": "Luiz Gustavo Lorençone Enz",
+  "shortName": "Luiz Gustavo Enz",
+  "nameLines": ["Luiz Gustavo", "Lorençone", "Enz"],
+  "role": "Desenvolvedor Full Stack Júnior",
+  "roleShort": "FULL STACK JÚNIOR",
+  "location": "Maringá, PR",
+  "available": true,
+  "heroIntro": "Estudante de Engenharia de Software e fundador da Enz Softwares. Crio sites e sistemas para pequenos negócios e construí o Curbside, um CRM de prospecção com back-end em Cloudflare Workers.",
+  "bio": "Estudante de Engenharia de Software na UniCesumar, com curso técnico em Desenvolvimento de Sistemas. Fundador da Enz Softwares, crio sites e sistemas para pequenos negócios. Tenho afinidade com back-end e busco uma vaga júnior ou trainee remota, de preferência em times internacionais.",
+  "typewriterPhrases": ["Full Stack Júnior", "Back-end com Cloudflare Workers", "Construindo CRMs e lojas"],
+  "heroChips": ["TypeScript", "React", "Cloudflare Workers"],
+  "hints": ["explore meus projetos abaixo", "aberto a vagas júnior e trainee remotas"],
+  "photo": {
+    "src": "/images/photo-480.webp",
+    "alt": "Foto de Luiz Gustavo Lorençone Enz",
+    "fit": "cover"
+  },
+  "cvPath": "/cv/luiz-gustavo-enz-cv.pdf",
+  "connect": [
+    {
+      "kind": "linkedin",
+      "label": "LinkedIn",
+      "display": "in/luiz-gustavo-lorencone-enz",
+      "url": "https://linkedin.com/in/luiz-gustavo-lorencone-enz",
+      "personal": true
+    },
+    {
+      "kind": "github",
+      "label": "GitHub",
+      "display": "github.com/Luiz192512",
+      "url": "https://github.com/Luiz192512",
+      "personal": true
+    },
+    {
+      "kind": "instagram",
+      "label": "Instagram",
+      "display": "@enz.softwares",
+      "url": "https://instagram.com/enz.softwares",
+      "personal": false
+    },
+    {
+      "kind": "site",
+      "label": "Site",
+      "display": "enzsoftwares.com",
+      "url": "https://enzsoftwares.com",
+      "personal": false
+    },
+    {
+      "kind": "email",
+      "label": "E-mail",
+      "display": "enz.luizgustavo@gmail.com",
+      "url": "mailto:enz.luizgustavo@gmail.com",
+      "personal": true
+    }
+  ]
+}
