@@ -4,3 +4,4 @@
 | 1 | opus-role (session is sonnet) | Artifact design + frontend-design principles | direction and screens authored in one pass; no separate Sonnet screens agent, cost saved | ok |
 | 1 | sonnet | DESIGN.md writer | contract export | ok |
 | 1 | sonnet | design revision | owner changed accent to Enz blue #00A7F8, torus 3D, added Enz Softwares work | ok |
+| 1 | haiku-equivalent (firecrawl read) + sonnet | reference analysis and design revision | extraction was read-only; edits scripted | ok |

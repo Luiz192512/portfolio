@@ -24,9 +24,9 @@ Accent tweak options: #00A7F8, #11E5FE, #0A58D0, #8FA2FF. Text on --muted must s
 
 ## Typography
 
-- Display: Space Grotesk 700, tracking -0.04em (h1) to -0.02em (h3), line-height 0.98 to 1.1.
+- Display: Syne 700 (600 to 800 available), tracking -0.04em (h1) to -0.02em (h3), line-height 0.98 to 1.1.
 - Body: Inter 400/500/600, 16 to 22 px, line-height 1.5 to 1.6.
-- Eyebrow: Space Grotesk 500, 12 to 14 px, uppercase, tracking 0.14em, --muted.
+- Labels, eyebrows, chips, counters captions, step numbers and the 3D HUD: DM Mono 400/500, 12 to 14 px, uppercase where it is an eyebrow, tracking 0.06 to 0.14em, --muted.
 - Scale (desktop / mobile): h1 92 / 46, page title 80 / 40, h2 48 / 32, h3 28 / 22, lead 20 / 17, body 16 / 15.
 
 ## Layout
@@ -68,6 +68,17 @@ No WebGL, low power, data-saver, or reduced motion: static poster image (the SVG
 - Site copy in pt-BR. No invented facts, clients or testimonials. Missing data renders as an obvious TODO only in content files, never on the live page (hide the section instead).
 - Client names and images appear only after the owner confirms permission.
 - Contact: WhatsApp +55 (44) 99769-7028, contact@enzsoftwares.com, @enz.softwares, github.com/Luiz192512. LinkedIn is TODO.
+
+## Reference-inspired patterns
+
+Structure borrowed (not copied) from a reference portfolio the owner chose as a base: https://portofolio-rho-sand-92.vercel.app/ (someone else's site; reuse layout ideas only, never its text, photo, links or data).
+
+- Hero status badge: pill with a --glow dot and "Disponível para trabalho", above the eyebrow. Shown only while the owner is available (content flag `availability` in site config).
+- Hero tail: stack chips (DM Mono, 1px --line-strong pill) and a "role para explorar" hint.
+- About with counters: short bio plus large number cards (Syne 72 px desktop / 56 px mobile, --accent) with DM Mono captions. Numbers must be derived from real content (works count, technologies count, languages of the Enz site), never invented.
+- Showcase tabs on the Works page: Projetos (grid plus stack filter), Stack (3 groups), Certificados. The Certificados tab and its content render only when real certificates exist; until then the tab is hidden on the live site.
+- Connect list: contact channels as full-width rows (label in DM Mono, value, arrow), each row one link, min height 44 px.
+- Guestbook (comments with image upload) is out of scope for v1. Future phase: needs a backend (Supabase or similar), moderation and spam control. Do not build it before that decision.
 
 ## Accessibility contract
 

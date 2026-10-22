@@ -70,3 +70,7 @@ Not a separate work: curbside-seguranca-mobile is a git worktree of Curbside (mo
 
 - No secrets, `.env` content or lead/backup data from the source projects enters this repo.
 - Copy only images that are the owner's own work or brand assets, and only after the owner confirms client permission.
+
+## Reference (added 2026-10-21)
+
+Owner asked to use https://portofolio-rho-sand-92.vercel.app/ as a structural base. Adopted: availability badge, about with counters, tabbed showcase, connect list, Syne + DM Mono. Not adopted: comments wall (future phase). No content from the reference is reused.
