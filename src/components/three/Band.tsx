@@ -6,6 +6,7 @@ import {
   BallCollider,
   CuboidCollider,
   RigidBody,
+  useBeforePhysicsStep,
   useRopeJoint,
   useSphericalJoint,
   type RapierRigidBody,
@@ -16,6 +17,7 @@ import {
   MeshStandardMaterial,
   Shape,
   ShapeGeometry,
+  Quaternion,
   Vector2,
   Vector3,
   type Group,
@@ -42,9 +44,19 @@ const STRAP_SAMPLES = 25;
 const STRAP_PX_K = 0.133;
 const STRAP_REPEAT_X = 2.4;
 const DAMPING = 4;
+const REST_Y = WORLD_ANCHOR_Y - ROPE_LEN - CARD_H / 2;
 const REST_SAMPLE = 0.25;
 const REST_SAMPLES = 4;
 const REST_EPSILON = 0.004;
+// Yaw spring: the strap untwists the card, so it always returns to face the viewer.
+const YAW_K = 90;
+const YAW_C = 9;
+const YAW_FLIP_BOOST = 3;
+const STEP = 1 / 60;
+// Drag feel: target smoothing rate (1/s), reach limit of the card top around the anchor, release speed cap.
+const DRAG_RATE = 28;
+const DRAG_REACH = 2.3;
+const RELEASE_MAX_SPEED = 16;
 
 const bodyY = (i: number) => WORLD_ANCHOR_Y + DROP - SEG * i;
 
@@ -60,6 +72,18 @@ interface Scratch {
   dragging: boolean;
   quiet: number;
   sample: number;
+  dragX: number;
+  dragY: number;
+  velX: number;
+  velY: number;
+  rawX: number;
+  rawY: number;
+  release: boolean;
+  q: Quaternion;
+  lastQ: Quaternion;
+  lastYaw: number;
+  torque: { x: number; y: number; z: number };
+  linvel: { x: number; y: number; z: number };
   lastX: number;
   lastY: number;
 }
@@ -77,6 +101,18 @@ function createScratch(): Scratch {
     dragging: false,
     quiet: 0,
     sample: 0,
+    dragX: 0,
+    dragY: 0,
+    velX: 0,
+    velY: 0,
+    rawX: 0,
+    rawY: 0,
+    release: false,
+    q: new Quaternion(),
+    lastQ: new Quaternion(),
+    lastYaw: 0,
+    torque: { x: 0, y: 0, z: 0 },
+    linvel: { x: 0, y: 0, z: 0 },
     lastX: 0,
     lastY: 0,
   };
@@ -276,6 +312,7 @@ export function Band({ strapTexture, cardTexture, onEntered, settled, onSettled 
   const endDrag = useCallback(() => {
     const s = scratchRef.current;
     if (s) {
+      if (s.dragging) s.release = true;
       s.dragging = false;
       s.quiet = 0;
     }
@@ -290,10 +327,36 @@ export function Band({ strapTexture, cardTexture, onEntered, settled, onSettled 
     (e.target as Element).setPointerCapture(e.pointerId);
     g.getWorldPosition(s.pos);
     s.offset.set(e.point.x - s.pos.x, e.point.y - s.pos.y);
+    s.dragX = s.pos.x;
+    s.dragY = s.pos.y;
+    s.velX = 0;
+    s.velY = 0;
+    s.rawX = e.point.x - s.offset.x;
+    s.rawY = e.point.y - s.offset.y;
+    s.release = false;
     s.dragging = true;
     s.quiet = 0;
     setDragged(true);
   }, []);
+
+  // Soft yaw spring plus damping on the card, applied once per physics step (no allocation).
+  useBeforePhysicsStep(() => {
+    const body = card.current;
+    const mc = gCard.current;
+    const s = scratchRef.current;
+    if (!body || !mc || !s || s.dragging || !strapTexture) return;
+    mc.getWorldQuaternion(s.q);
+    let yaw = 2 * Math.atan2(s.q.y, s.q.w);
+    if (yaw > Math.PI) yaw -= 2 * Math.PI;
+    else if (yaw < -Math.PI) yaw += 2 * Math.PI;
+    let dy = yaw - s.lastYaw;
+    if (dy > Math.PI) dy -= 2 * Math.PI;
+    else if (dy < -Math.PI) dy += 2 * Math.PI;
+    s.lastYaw = yaw;
+    const k = Math.abs(yaw) > 1.2 ? YAW_K * YAW_FLIP_BOOST : YAW_K;
+    s.torque.y = (-k * yaw - YAW_C * (dy / STEP)) * STEP;
+    body.applyTorqueImpulse(s.torque, true);
+  });
 
   useFrame((state, delta) => {
     if (!strapTexture || !cardTexture) return;
@@ -331,13 +394,44 @@ export function Band({ strapTexture, cardTexture, onEntered, settled, onSettled 
       s.vec.copy(cam.position).addScaledVector(s.dir, dist);
       const viewH = 2 * Math.abs(cam.position.z) * Math.tan(((cam as PerspectiveCamera).fov * Math.PI) / 360);
       const maxX = Math.max(0, (viewH * (state.size.width / state.size.height)) / 2 - CARD_W / 2);
-      s.target.x = Math.max(-maxX, Math.min(maxX, s.vec.x - s.offset.x));
-      s.target.y = Math.max(WORLD_ANCHOR_Y - 6, Math.min(WORLD_ANCHOR_Y, s.vec.y - s.offset.y));
+      const rx = s.vec.x - s.offset.x;
+      const ry = s.vec.y - s.offset.y;
+      let wx = Math.max(-maxX, Math.min(maxX, rx));
+      let wy = ry;
+      // Keep the card top within reach of the anchor, and below it.
+      let topY = wy + CARD_H / 2 - WORLD_ANCHOR_Y;
+      if (topY > -0.3) topY = -0.3;
+      const len = Math.hypot(wx, topY);
+      if (len > DRAG_REACH) {
+        wx *= DRAG_REACH / len;
+        topY *= DRAG_REACH / len;
+      }
+      wy = topY + WORLD_ANCHOR_Y - CARD_H / 2;
+      // Smooth the kinematic target so the rope never sees a teleport, and track release velocity.
+      const dt = Math.max(delta, 1 / 240);
+      const a = 1 - Math.exp(-DRAG_RATE * dt);
+      s.dragX += (wx - s.dragX) * a;
+      s.dragY += (wy - s.dragY) * a;
+      // Release velocity comes from the raw pointer (the box clamps the visible card, not the hand).
+      s.velX += ((rx - s.rawX) / dt - s.velX) * 0.4;
+      s.velY += ((ry - s.rawY) / dt - s.velY) * 0.4;
+      s.rawX = rx;
+      s.rawY = ry;
+      s.target.x = s.dragX;
+      s.target.y = s.dragY;
       rJ1.wakeUp();
       rJ2.wakeUp();
       rJ3.wakeUp();
       rCard.wakeUp();
       rCard.setNextKinematicTranslation(s.target);
+    } else if (s.release && !dragged) {
+      // Back to dynamic: hand the pointer velocity to the card so flicks swing.
+      s.release = false;
+      const sp = Math.hypot(s.velX, s.velY);
+      const f = sp > RELEASE_MAX_SPEED ? RELEASE_MAX_SPEED / sp : 1;
+      s.linvel.x = s.velX * f;
+      s.linvel.y = s.velY * f;
+      rCard.setLinvel(s.linvel, true);
     }
 
     // Strap control points, bottom to top: j3, j2, j1, anchor, a point above the screen.
@@ -369,18 +463,38 @@ export function Band({ strapTexture, cardTexture, onEntered, settled, onSettled 
     }
 
     // Rest detection: compare the card position every 0.25 s, asleep after 4 quiet samples in a row.
-    s.sample += delta;
+    s.sample += Math.min(delta, 0.05);
     if (settled || s.dragging || te < DROP_DURATION + 0.2) {
       s.quiet = 0;
       s.sample = 0;
       s.lastX = s.pos.x;
       s.lastY = s.pos.y;
+      s.lastQ.copy(s.q);
     } else if (s.sample >= REST_SAMPLE) {
       s.sample = 0;
-      const moved = Math.abs(s.pos.x - s.lastX) + Math.abs(s.pos.y - s.lastY);
+      mc.getWorldQuaternion(s.q);
+      const turned = 2 * Math.acos(Math.min(1, Math.abs(s.q.dot(s.lastQ))));
+      s.lastQ.copy(s.q);
+      const moved = Math.abs(s.pos.x - s.lastX) + Math.abs(s.pos.y - s.lastY) + turned;
       s.lastX = s.pos.x;
       s.lastY = s.pos.y;
-      s.quiet = moved < REST_EPSILON ? s.quiet + 1 : 0;
+      const atRest =
+        Math.abs(s.pos.x) < 0.05 &&
+        Math.abs(s.pos.y - REST_Y) < 0.06 &&
+        Math.abs(s.q.y) < 0.05 &&
+        Math.abs(s.q.z) < 0.05;
+      const still = moved < REST_EPSILON;
+      s.quiet = still && atRest ? s.quiet + 1 : 0;
+      if (still && !atRest) {
+        // Motionless away from the rest pose: a stalled or sleeping chain. Wake it and nudge it down.
+        rJ1.wakeUp();
+        rJ2.wakeUp();
+        rJ3.wakeUp();
+        s.linvel.x = 0.05;
+        s.linvel.y = -0.2;
+        s.linvel.z = 0.05;
+        rCard.applyImpulse(s.linvel, true);
+      }
       if (s.quiet >= REST_SAMPLES) {
         s.quiet = 0;
         onSettled();
