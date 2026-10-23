@@ -6,7 +6,7 @@ import { Header } from '@/components/layout/Header';
 import { SkipLink } from '@/components/layout/SkipLink';
 import { MotionProvider } from '@/components/motion/MotionProvider';
 import { dmMono, syne } from '@/lib/fonts';
-import { SITE_TITLE, siteUrl } from '@/lib/site';
+import { SITE_NAME, SITE_TITLE, siteUrl } from '@/lib/site';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -15,7 +15,8 @@ export const metadata: Metadata = {
   description:
     'Portfólio de Luiz Gustavo Enz, desenvolvedor full stack júnior e fundador da Enz Softwares, em Maringá, PR.',
   alternates: { canonical: '/' },
-  openGraph: { locale: 'pt_BR', type: 'website' },
+  // url resolves against metadataBase, so each environment gets its own absolute address.
+  openGraph: { locale: 'pt_BR', type: 'website', url: '/', siteName: SITE_NAME },
   twitter: { card: 'summary_large_image' },
 };
 

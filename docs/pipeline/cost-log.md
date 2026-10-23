@@ -40,3 +40,6 @@
 | 8 | haiku | readme-generator (README.md, CHANGELOG.md) | docs, mechanical | ok; README mentions pnpm and prepare:images vs repo npm and images (to fix in review) |
 | 8 | opus | code-reviewer (final review, 08-release.md) | security, provenance, deploy readiness | READY WITH CAVEATS |
 | 8 | sonnet | react-specialist (og:type article, lanyard drop visual check, LCP investigation) | pre-release P1s | ok; LCP changes reverted (no gain) |
+| 8 | sonnet (orchestrator session) | Vercel import via user's Chrome (project portfolio-5gq1, preset Next.js) + empty commit to trigger preview | MCP connector 403, CLI missing; browser path | ok: preview Ready, main deploy failed by design |
+| 8 | sonnet (orchestrator session) | Vercel domains (portfolio.enzsoftwares.com prod, dev.portfolio.enzsoftwares.com branch feat/portfolio-v1) + 2 Cloudflare CNAMEs via user's Chrome, each saved after user confirmation | user request | ok: dev domain live over HTTPS; prod domain waits for main deployment |
+| 8 | sonnet (orchestrator session) | Vercel env NEXT_PUBLIC_SITE_URL (Production, Preview branch feat/portfolio-v1) + preview redeploy without build cache, verified canonical and contact origin | user request | ok; og:image and og:url still use vercel.app (metadataBase missing) |
