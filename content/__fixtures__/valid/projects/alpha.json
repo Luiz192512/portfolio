@@ -1,0 +1,10 @@
+{
+  "title": "Alpha",
+  "kind": "PRODUTO PROPRIO",
+  "summary": "Projeto de teste alpha com resumo longo o bastante para validar.",
+  "cover": { "src": "/projects/alpha/cover.webp", "alt": "Capa do projeto alpha" },
+  "tech": ["Next.js"],
+  "features": ["Recurso um"],
+  "link": { "status": "live", "url": "https://alpha.example.com" },
+  "order": 2
+}

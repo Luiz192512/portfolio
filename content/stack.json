@@ -1,0 +1,27 @@
+{
+  "items": [
+    { "name": "JavaScript", "monogram": "JS", "category": "languages" },
+    { "name": "TypeScript", "monogram": "TS", "category": "languages" },
+    { "name": "Java", "monogram": "JV", "category": "languages" },
+    { "name": "Go", "monogram": "GO", "category": "languages" },
+    { "name": "Python", "monogram": "PY", "category": "languages" },
+    { "name": "React", "monogram": "RE", "category": "frontend-mobile" },
+    { "name": "Next.js", "monogram": "NX", "category": "frontend-mobile" },
+    { "name": "React Native (Expo)", "monogram": "RN", "category": "frontend-mobile" },
+    { "name": "Node.js", "monogram": "ND", "category": "backend" },
+    { "name": "Cloudflare Workers", "monogram": "CF", "category": "backend" },
+    { "name": "Spring Boot", "monogram": "SB", "category": "backend" },
+    { "name": "APIs REST", "monogram": "RS", "category": "backend" },
+    { "name": "PostgreSQL", "monogram": "PG", "category": "data" },
+    { "name": "SQLite (D1)", "monogram": "SQ", "category": "data" },
+    { "name": "Supabase", "monogram": "SU", "category": "data" },
+    { "name": "MySQL", "monogram": "MY", "category": "data" },
+    { "name": "Git", "monogram": "GT", "category": "tools" },
+    { "name": "GitHub", "monogram": "GH", "category": "tools" },
+    { "name": "Testes automatizados", "monogram": "TA", "category": "tools" },
+    { "name": "Desenvolvimento assistido por IA", "monogram": "IA", "category": "tools" },
+    { "name": "Prompt engineering", "monogram": "PE", "category": "tools" },
+    { "name": "Agent skills", "monogram": "AS", "category": "tools" },
+    { "name": "Automação", "monogram": "AU", "category": "tools" }
+  ]
+}

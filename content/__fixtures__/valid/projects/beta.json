@@ -1,0 +1,11 @@
+{
+  "title": "Beta",
+  "kind": "CLIENTE",
+  "summary": "Projeto de teste beta com resumo longo o bastante para validar.",
+  "cover": { "src": "/projects/beta/cover.webp", "alt": "Capa do projeto beta", "fit": "contain" },
+  "tech": ["Go"],
+  "features": ["Recurso um"],
+  "link": { "status": "private-tool" },
+  "repoUrl": "https://github.com/teste/beta",
+  "order": 1
+}

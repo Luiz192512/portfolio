@@ -1,0 +1,11 @@
+{
+  "title": "Broken",
+  "kind": "X",
+  "summary": "curto",
+  "cover": { "src": "/projects/broken/cover.webp", "alt": "Capa quebrada" },
+  "tech": ["Go"],
+  "features": ["Recurso um"],
+  "link": { "status": "none" },
+  "order": 1,
+  "typo": true
+}

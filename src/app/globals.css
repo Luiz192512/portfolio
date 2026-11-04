@@ -1,0 +1,229 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-bg: #0d0d0d;
+  --color-surface-glass: rgba(255, 255, 255, 0.04);
+  --color-surface-glass-fallback: rgba(23, 23, 23, 0.92);
+  --color-surface-lanyard: rgba(22, 22, 22, 0.72);
+  --color-line: rgba(255, 255, 255, 0.08);
+  --color-line-glass: rgba(255, 255, 255, 0.1);
+  --color-line-strong: rgba(255, 255, 255, 0.16);
+  --color-line-strong-hover: rgba(255, 255, 255, 0.22);
+  --color-grid-line: rgba(255, 255, 255, 0.035);
+  --color-text: #f0f0f0;
+  --color-text-muted: #a3a3a3;
+  --color-text-subtle: #8a8a8a;
+  --color-accent: #00a7f8;
+  --color-accent-hover: #38bbfa;
+  --color-link-hover: #5cc8ff;
+  --color-on-accent: #0d0d0d;
+  --color-danger: #ff8a80;
+  --color-hero-gradient-top: #b5b5b5;
+  --color-hero-gradient-bottom: #6b6b6b;
+
+  --radius-input: 14px;
+  --radius-tile: 16px;
+  --radius-tile-lg: 20px;
+  --radius-lanyard: 22px;
+  --radius-card: 24px;
+  --radius-panel: 28px;
+
+  --font-sans: var(--font-syne), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-dm-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --ease-expo-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-micro: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+:root {
+  color-scheme: dark;
+  --gutter: 16px;
+  --grid-size: 48px;
+  --section-pad: 56px;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --gutter: 40px;
+    --grid-size: 64px;
+    --section-pad: 112px;
+  }
+}
+
+html {
+  background: var(--color-bg);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  background: transparent;
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-width: 320px;
+  overflow-x: clip;
+}
+
+section[id] {
+  scroll-margin-top: 96px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline-offset: 2px;
+}
+
+::selection {
+  background: rgba(0, 167, 248, 0.35);
+}
+
+/* Glass recipe from DESIGN.md */
+@utility glass {
+  background: var(--color-surface-glass);
+  border: 1px solid var(--color-line-glass);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 24px 48px -24px rgba(0, 0, 0, 0.6);
+
+  @supports not (backdrop-filter: blur(1px)) {
+    background: var(--color-surface-glass-fallback);
+  }
+}
+
+@utility container-site {
+  width: 100%;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+@utility container-content {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+@utility section-pad {
+  padding-block: var(--section-pad);
+}
+
+/* Fixed background layer: bg, grid, vignette (z -10) */
+.site-background {
+  position: fixed;
+  inset: 0;
+  z-index: -10;
+  pointer-events: none;
+  background-color: var(--color-bg);
+  background-image:
+    radial-gradient(ellipse 120% 60% at 50% 25%, transparent 0%, rgba(13, 13, 13, 0.55) 60%, #0d0d0d 100%),
+    linear-gradient(to right, var(--color-grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--color-grid-line) 1px, transparent 1px);
+  background-size:
+    100% 100%,
+    var(--grid-size) var(--grid-size),
+    var(--grid-size) var(--grid-size);
+}
+
+@media (min-width: 768px) {
+  .site-background {
+    background-image:
+      radial-gradient(ellipse 80% 70% at 50% 40%, transparent 0%, rgba(13, 13, 13, 0.55) 60%, #0d0d0d 100%),
+      linear-gradient(to right, var(--color-grid-line) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--color-grid-line) 1px, transparent 1px);
+  }
+}
+
+/*
+ * Hero paragraph entry (DESIGN.md timeline: 460 ms delay, 800 ms, expo-out, y 24 to 0).
+ * Pure CSS so it starts at first paint instead of after hydration, which keeps the LCP
+ * candidate from waiting for the JS bundle. Same values as ENTRY.paragraph.
+ */
+@keyframes entry-paragraph {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes entry-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.entry-paragraph {
+  animation: entry-paragraph 800ms cubic-bezier(0.16, 1, 0.3, 1) 460ms both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .entry-paragraph {
+    animation: entry-fade 200ms linear 0ms both;
+  }
+}
+
+/* Mobile menu dialog */
+dialog.menu-sheet {
+  background: transparent;
+  color: inherit;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  max-width: none;
+  max-height: none;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+dialog.menu-sheet::backdrop {
+  background: rgba(13, 13, 13, 0.6);
+  backdrop-filter: blur(4px);
+}
+
+/* Shared element transition between project card and detail cover */
+::view-transition-group(*) {
+  animation-duration: 500ms;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*) {
+    animation-duration: 0s;
+  }
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 120ms;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

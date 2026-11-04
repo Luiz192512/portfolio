@@ -1,0 +1,20 @@
+{
+  "title": "Curbside",
+  "kind": "PRODUTO PRÓPRIO",
+  "summary": "CRM de prospecção internacional (BR, PT, ES, US) com back-end em Cloudflare Workers e D1, front em JS com Motion e Leaflet, e app em React Native com Expo.",
+  "cover": {
+    "src": "/projects/curbside/cover.webp",
+    "alt": "Ícone do Curbside",
+    "fit": "contain"
+  },
+  "tech": ["Cloudflare Workers", "D1", "JavaScript", "Motion", "Leaflet", "React Native", "Expo"],
+  "features": [
+    "Prospecção internacional em BR, PT, ES e US",
+    "Back-end em Cloudflare Workers com banco D1",
+    "Front-end em JS com Motion e Leaflet",
+    "App em React Native com Expo"
+  ],
+  "link": { "status": "private-tool" },
+  "featured": false,
+  "order": 1
+}

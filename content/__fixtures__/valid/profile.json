@@ -1,0 +1,20 @@
+{
+  "name": "Fulano de Tal Teste",
+  "shortName": "Fulano Teste",
+  "nameLines": ["Fulano", "de Tal", "Teste"],
+  "role": "Desenvolvedor de Teste",
+  "roleShort": "TESTE",
+  "location": "Maringá, PR",
+  "available": true,
+  "heroIntro": "Texto de introdução de teste.",
+  "bio": "Biografia de teste.",
+  "typewriterPhrases": ["Frase um"],
+  "heroChips": ["Chip"],
+  "hints": ["dica"],
+  "photo": { "src": "/images/foto.webp", "alt": "Foto de teste" },
+  "cvPath": "/cv/teste.pdf",
+  "connect": [
+    { "kind": "github", "label": "GitHub", "display": "gh/teste", "url": "https://github.com/teste", "personal": true },
+    { "kind": "email", "label": "E-mail", "display": "teste@example.com", "url": "mailto:teste@example.com", "personal": true }
+  ]
+}

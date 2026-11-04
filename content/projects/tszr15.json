@@ -1,0 +1,20 @@
+{
+  "title": "TSZR15 Store",
+  "kind": "E-COMMERCE",
+  "summary": "Loja para Yamaha R15 em Next.js 16 e Supabase, com Mercado Pago, checkout via WhatsApp, painel admin e rastreio de pedidos.",
+  "cover": {
+    "src": "/projects/tszr15/cover.webp",
+    "alt": "Capa da TSZR15 Store"
+  },
+  "tech": ["Next.js 16", "Supabase", "Mercado Pago"],
+  "features": [
+    "Checkout via WhatsApp",
+    "Pagamentos com Mercado Pago",
+    "Painel admin",
+    "Rastreio de pedidos"
+  ],
+  "link": { "status": "none" },
+  "repoUrl": "https://github.com/Luiz192512/TSZR15",
+  "featured": false,
+  "order": 3
+}

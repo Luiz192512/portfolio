@@ -1,0 +1,23 @@
+[
+  {
+    "role": "Estagiário de TI",
+    "org": "Colégio Santa Cruz",
+    "start": "2026",
+    "end": null,
+    "short": "estágio"
+  },
+  {
+    "role": "Fundador",
+    "org": "Enz Softwares",
+    "start": "2025",
+    "end": null,
+    "short": "Enz Softwares"
+  },
+  {
+    "role": "Auxiliar Administrativo de Engenharia",
+    "org": "Kaêra Parts",
+    "start": "2025",
+    "end": "2025",
+    "short": "Kaêra Parts"
+  }
+]
