@@ -1,18 +1,21 @@
 {
   "title": "Curbside",
   "kind": "PRODUTO PRÓPRIO",
-  "summary": "CRM de prospecção internacional (BR, PT, ES, US) com back-end em Cloudflare Workers e D1, front em JS com Motion e Leaflet, e app em React Native com Expo.",
+  "summary": "CRM de prospecção em 4 países (BR, PT, ES, US): coleta leads no OpenStreetMap e no Overture Maps, escreve a abordagem no idioma de cada país e envia e-mails por fila. Cloudflare Workers, D1 e app em React Native.",
   "cover": {
     "src": "/projects/curbside/cover.webp",
     "alt": "Ícone do Curbside",
     "fit": "contain"
   },
-  "tech": ["Cloudflare Workers", "D1", "JavaScript", "Motion", "Leaflet", "React Native", "Expo"],
+  "tech": ["Cloudflare Workers", "D1", "JavaScript", "Motion", "Leaflet", "React Native", "Expo", "Cron"],
   "features": [
-    "Prospecção internacional em BR, PT, ES e US",
-    "Back-end em Cloudflare Workers com banco D1",
-    "Front-end em JS com Motion e Leaflet",
-    "App em React Native com Expo"
+    "Opera em quatro países: Brasil, Portugal, Espanha e EUA",
+    "Coleta de leads no OpenStreetMap e no Overture Maps",
+    "Abordagem escrita no idioma de cada país",
+    "Funil de vendas, painel de análise e fila de e-mail automática",
+    "Robô agendado por Cron e testes automatizados",
+    "16 correções vindas de uma auditoria de segurança",
+    "Back-end em Cloudflare Workers com D1 e app em React Native (Expo)"
   ],
   "link": { "status": "private-tool" },
   "featured": false,

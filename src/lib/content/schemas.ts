@@ -74,7 +74,7 @@ export const ExperienceSchema = z
   .strict();
 export const ExperienceListSchema = z.array(ExperienceSchema);
 
-export const TECH_CATEGORIES = ['languages', 'frontend-mobile', 'backend', 'data', 'tools'] as const;
+export const TECH_CATEGORIES = ['ai', 'languages', 'frontend-mobile', 'backend', 'data', 'automation', 'tools'] as const;
 export const TechCategorySchema = z.enum(TECH_CATEGORIES);
 export const TechItemSchema = z
   .object({

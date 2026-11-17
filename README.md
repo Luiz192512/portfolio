@@ -197,7 +197,7 @@ Lista de objetos com estes campos:
 
 ### Stack (`content/stack.json`)
 
-Objeto com `items`. Cada item tem `name` (até 40 caracteres), `monogram` (de 1 a 3 caracteres) e `category`. As categorias aceitas são `languages`, `frontend-mobile`, `backend`, `data` e `tools`. Categorias sem itens não aparecem.
+Objeto com `items`. Cada item tem `name` (até 40 caracteres), `monogram` (de 1 a 3 caracteres) e `category`. As categorias aceitas são `ai`, `languages`, `frontend-mobile`, `backend`, `data`, `automation` e `tools`. Categorias sem itens não aparecem.
 
 ```json
 { "name": "TypeScript", "monogram": "TS", "category": "languages" }

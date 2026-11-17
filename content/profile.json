@@ -6,11 +6,11 @@
   "roleShort": "FULL STACK JÚNIOR",
   "location": "Maringá, PR",
   "available": true,
-  "heroIntro": "Estudante de Engenharia de Software e fundador da Enz Softwares. Crio sites e sistemas para pequenos negócios e construí o Curbside, um CRM de prospecção com back-end em Cloudflare Workers.",
-  "bio": "Estudante de Engenharia de Software na UniCesumar, com curso técnico em Desenvolvimento de Sistemas. Fundador da Enz Softwares, crio sites e sistemas para pequenos negócios. Tenho afinidade com back-end e busco uma vaga júnior ou trainee remota, de preferência em times internacionais.",
-  "typewriterPhrases": ["Full Stack Júnior", "Back-end com Cloudflare Workers", "Construindo CRMs e lojas"],
-  "heroChips": ["TypeScript", "React", "Cloudflare Workers"],
-  "hints": ["explore meus projetos abaixo", "aberto a vagas júnior e trainee remotas"],
+  "heroIntro": "Estudante de Engenharia de Software e fundador da Enz Softwares. Construo com IA no dia a dia: automações com LLMs, avaliação de prompts e sistemas completos, como o Curbside e uma automação de candidaturas.",
+  "bio": "Estudante de Engenharia de Software na Unicesumar (4º semestre, conclusão em 2028), com formação técnica em Desenvolvimento de Sistemas. Fundador da Enz Softwares, crio sites e sistemas para pequenos negócios. Construo com IA no dia a dia: automações com LLMs, avaliação de prompts com conjunto de teste e sistemas completos do zero, como o Curbside. Busco estágio ou vaga júnior em IA.",
+  "typewriterPhrases": ["Full Stack Júnior", "Automações com LLMs", "Back-end com Cloudflare Workers", "Prompts avaliados com dados"],
+  "heroChips": ["Python", "LLMs", "TypeScript", "Cloudflare Workers"],
+  "hints": ["explore meus projetos abaixo", "aberto a estágio e vagas em IA"],
   "photo": {
     "src": "/images/photo-480.webp",
     "alt": "Foto de Luiz Gustavo Lorençone Enz",
@@ -21,8 +21,8 @@
     {
       "kind": "linkedin",
       "label": "LinkedIn",
-      "display": "in/luiz-gustavo-lorencone-enz",
-      "url": "https://linkedin.com/in/luiz-gustavo-lorencone-enz",
+      "display": "in/luiz-gustavo-lorencone-enz-370b15279",
+      "url": "https://linkedin.com/in/luiz-gustavo-lorencone-enz-370b15279",
       "personal": true
     },
     {
