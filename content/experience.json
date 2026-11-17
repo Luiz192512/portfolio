@@ -2,12 +2,12 @@
   {
     "role": "Estagiário de TI",
     "org": "Colégio Santa Cruz",
-    "start": "2026",
+    "start": "2026-03",
     "end": null,
     "short": "estágio"
   },
   {
-    "role": "Fundador",
+    "role": "Fundador e Desenvolvedor",
     "org": "Enz Softwares",
     "start": "2025",
     "end": null,
@@ -15,9 +15,9 @@
   },
   {
     "role": "Auxiliar Administrativo de Engenharia",
-    "org": "Kaêra Parts",
-    "start": "2025",
-    "end": "2025",
-    "short": "Kaêra Parts"
+    "org": "Teles Hidráulica",
+    "start": "2025-02",
+    "end": "2025-09",
+    "short": "Teles Hidráulica"
   }
 ]

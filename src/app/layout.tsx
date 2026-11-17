@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl()),
   title: { default: SITE_TITLE, template: '%s | Luiz Gustavo Enz' },
   description:
-    'Portfólio de Luiz Gustavo Enz, desenvolvedor full stack júnior e fundador da Enz Softwares, em Maringá, PR.',
+    'Portfólio de Luiz Gustavo Enz, desenvolvedor full stack júnior com foco em IA e fundador da Enz Softwares, em Maringá, PR.',
   alternates: { canonical: '/' },
   // url resolves against metadataBase, so each environment gets its own absolute address.
   openGraph: { locale: 'pt_BR', type: 'website', url: '/', siteName: SITE_NAME },

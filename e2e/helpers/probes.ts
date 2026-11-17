@@ -13,6 +13,7 @@ export const PROFILES: Record<ProfileName, { viewport: { width: number; height: 
 
 export const ROUTES = [
   '/',
+  '/portfolio/automacao-candidaturas-llm',
   '/portfolio/curbside',
   '/portfolio/enz-softwares',
   '/portfolio/tszr15',

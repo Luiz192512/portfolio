@@ -54,10 +54,12 @@ export const copy = {
       action: 'Ver projetos',
     },
     stackGroups: {
+      ai: 'IA E LLMS',
       languages: 'LINGUAGENS',
       'frontend-mobile': 'FRONT-END E MOBILE',
       backend: 'BACK-END',
       data: 'DADOS',
+      automation: 'AUTOMAÇÃO',
       tools: 'FERRAMENTAS',
     },
   },
@@ -75,7 +77,7 @@ export const copy = {
   contact: {
     eyebrow: 'CONTATO',
     title: 'Fale comigo',
-    intro: 'Vagas, projetos ou uma conversa sobre back-end. Respondo pelo e-mail.',
+    intro: 'Vagas, projetos ou uma conversa sobre IA e back-end. Respondo pelo e-mail.',
     formTitle: 'Envie uma mensagem',
     labels: { name: 'NOME', email: 'E-MAIL', message: 'MENSAGEM' },
     placeholders: {

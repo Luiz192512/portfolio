@@ -2,6 +2,7 @@ import type { ConsoleMessage, Page } from '@playwright/test';
 
 /** Expected data from content/projects (slug = file name). Used by the smoke suite only. */
 export const PROJECTS = [
+  { slug: 'automacao-candidaturas-llm', title: 'Automação de candidaturas com LLMs', demo: null, repo: null },
   { slug: 'curbside', title: 'Curbside', demo: null, repo: null },
   { slug: 'enz-softwares', title: 'Enz Softwares', demo: 'https://enzsoftwares.com', repo: null },
   { slug: 'tszr15', title: 'TSZR15 Store', demo: null, repo: 'https://github.com/Luiz192512/TSZR15' },

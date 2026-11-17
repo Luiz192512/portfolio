@@ -1,0 +1,22 @@
+{
+  "title": "Automação de candidaturas com LLMs",
+  "kind": "PROJETO PESSOAL",
+  "summary": "Coleta vagas de várias fontes, tria cada uma com um modelo de linguagem e confirma com outro, com respostas em JSON e checagem de afirmações sem base no currículo.",
+  "cover": {
+    "src": "/projects/automacao-candidaturas-llm/cover.webp",
+    "alt": "Capa do projeto de automação de candidaturas com modelos de linguagem",
+    "fit": "cover"
+  },
+  "tech": ["Python", "Groq", "Gemini", "Claude", "WhatsApp", "JSON", "Cron"],
+  "features": [
+    "Coleta vagas de várias fontes",
+    "Triagem com um modelo e confirmação com outro",
+    "Respostas em JSON e checagem de afirmações sem base no currículo",
+    "Prompt otimizado com conjunto de avaliação (treino, validação e teste)",
+    "Troca automática de modelo quando a cota acaba",
+    "Rodadas agendadas e bot de WhatsApp que envia resumos e recebe comandos"
+  ],
+  "link": { "status": "private-tool" },
+  "featured": true,
+  "order": 0
+}
