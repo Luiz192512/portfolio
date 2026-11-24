@@ -4,12 +4,13 @@ import { ButtonLink } from '@/components/ui/Button';
 import { Eyebrow } from '@/components/ui/Eyebrow';
 import { GlassPanel } from '@/components/ui/GlassPanel';
 import { Icon } from '@/components/ui/Icon';
-import { copy } from '@/lib/copy';
+import { getCopy } from '@/lib/i18n/server';
 import type { ContentStats } from '@/lib/content/stats';
 import type { Profile } from '@/lib/content/schemas';
 import { AboutStats } from './AboutStats';
 
-export function AboutSection({ profile, stats }: { profile: Profile; stats: ContentStats }) {
+export async function AboutSection({ profile, stats }: { profile: Profile; stats: ContentStats }) {
+  const copy = await getCopy();
   const [first, second, third] = profile.nameLines;
   return (
     <section id="about" aria-labelledby="about-title" className="container-content section-pad">

@@ -4,8 +4,10 @@ import { usePathname } from 'next/navigation';
 import { m } from 'motion/react';
 import { EntryItem } from '@/components/motion/EntryItem';
 import { EASE_EXPO_OUT } from '@/components/motion/tokens';
-import { copy } from '@/lib/copy';
+import { useCopy, useLocale } from '@/lib/i18n/client';
+import { localePath, stripLocale } from '@/lib/i18n/locales';
 import { SECTION_IDS } from '@/lib/site';
+import { LangToggle } from './LangToggle';
 import { MobileMenu } from './MobileMenu';
 import { NavAnchor } from './NavAnchor';
 import type { NavLink } from './nav-types';
@@ -13,10 +15,13 @@ import { useScrollSpy } from './use-scroll-spy';
 
 
 export function Navbar({ links }: { links: readonly NavLink[] }) {
+  const copy = useCopy();
   const pathname = usePathname();
-  const onHome = pathname === '/';
+  const locale = useLocale();
+  const { path } = stripLocale(pathname);
+  const onHome = path === '/';
   const active = useScrollSpy(SECTION_IDS, onHome);
-  const hrefFor = (id: string) => (onHome ? `#${id}` : `/#${id}`);
+  const hrefFor = (id: string) => (onHome ? `#${id}` : `${localePath(locale)}#${id}`);
 
   return (
     <EntryItem step="navbar" className="pointer-events-auto mx-auto max-w-[1080px]">
@@ -54,13 +59,17 @@ export function Navbar({ links }: { links: readonly NavLink[] }) {
           })}
         </ul>
 
-        <MobileMenu links={links} hrefFor={hrefFor} onHome={onHome} active={active} />
+        <div className="flex items-center gap-1">
+          <LangToggle />
+          <MobileMenu links={links} hrefFor={hrefFor} onHome={onHome} active={active} />
+        </div>
       </nav>
     </EntryItem>
   );
 }
 
 function Wordmark({ href, onHome }: { href: string; onHome: boolean }) {
+  const copy = useCopy();
   const [first = '', second = ''] = copy.nav.wordmark.split('.');
   return (
     <NavAnchor

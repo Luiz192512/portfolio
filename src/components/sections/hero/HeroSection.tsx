@@ -4,11 +4,17 @@ import { LanyardSlot } from '@/components/three/LanyardSlot';
 import { StaticLanyard } from '@/components/three/StaticLanyard';
 import { Icon } from '@/components/ui/Icon';
 import { MonoHint } from '@/components/ui/MonoHint';
-import { copy } from '@/lib/copy';
+import { getCopy, getLocale } from '@/lib/i18n/server';
 import { ChipList } from './ChipList';
 import type { Profile } from '@/lib/content/schemas';
 
-export function HeroSection({ profile }: { profile: Profile }) {
+export async function HeroSection({ profile }: { profile: Profile }) {
+  const copy = await getCopy();
+  // "Developer" is wider than "Full Stack", so the English headline steps down a size to fit the column.
+  const line2Size =
+    (await getLocale()) === 'en'
+      ? 'text-[clamp(32px,9.2vw,83px)] lg:text-[clamp(56px,6.7vw,83px)]'
+      : 'text-[clamp(40px,11.6vw,104px)] lg:text-[clamp(70px,8.4vw,104px)]';
   return (
     <section
       id="home"
@@ -35,7 +41,9 @@ export function HeroSection({ profile }: { profile: Profile }) {
             >
               {copy.hero.line1}
             </span>
-            <span className="block whitespace-nowrap bg-gradient-to-b from-hero-gradient-top to-hero-gradient-bottom bg-clip-text text-[clamp(40px,11.6vw,104px)] lg:text-[clamp(70px,8.4vw,104px)] font-extrabold leading-[0.92] tracking-[-0.045em] text-transparent">
+            <span
+              className={`block whitespace-nowrap bg-gradient-to-b from-hero-gradient-top to-hero-gradient-bottom bg-clip-text ${line2Size} font-extrabold leading-[0.92] tracking-[-0.045em] text-transparent`}
+            >
               {copy.hero.line2}
             </span>
           </EntryItem>

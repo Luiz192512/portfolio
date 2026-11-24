@@ -2,12 +2,13 @@
 
 import { useId, useState, type ReactNode } from 'react';
 import { Button } from '@/components/ui/Button';
-import { copy } from '@/lib/copy';
+import { useCopy } from '@/lib/i18n/client';
 
 export const VISIBLE_COUNT = 6;
 
 /** Owns the "Ver mais" state. All items stay in the HTML; extras get `hidden`. */
 export function ProjectGrid({ items }: { items: ReactNode[] }) {
+  const copy = useCopy();
   const [expanded, setExpanded] = useState(false);
   const gridId = useId();
   return (

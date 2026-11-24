@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import { EmptyState } from '@/components/ui/EmptyState';
-import { copy } from '@/lib/copy';
+import { useCopy } from '@/lib/i18n/client';
 import { CommentItem, CommentSkeleton, type PublicComment } from './CommentItem';
 
 export type CommentsState =
@@ -52,6 +52,7 @@ export function CommentList({ state, onVisible }: CommentListProps) {
 }
 
 export function CommentListBody({ state }: { state: CommentsState }) {
+  const copy = useCopy();
   if (state.kind === 'loading') return <CommentSkeleton />;
   if (state.kind === 'error') {
     return (

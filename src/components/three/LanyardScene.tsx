@@ -4,7 +4,7 @@ import { Suspense, useCallback, useEffect, useRef, useState } from 'react';
 import { Canvas, useThree } from '@react-three/fiber';
 import { Physics } from '@react-three/rapier';
 import type { PerspectiveCamera, Texture } from 'three';
-import { copy } from '@/lib/copy';
+import { useCopy } from '@/lib/i18n/client';
 import { Band, CARD_H, WORLD_ANCHOR_Y } from './Band';
 import { createCardTexture } from './card-texture';
 import { createStrapTexture } from './strap-texture';
@@ -46,6 +46,7 @@ function isCoarse(): boolean {
 }
 
 export default function LanyardScene({ onReady }: { onReady?: () => void }) {
+  const copy = useCopy();
   const rootRef = useRef<HTMLDivElement>(null);
   const [inView, setInView] = useState(true);
   const [tabVisible, setTabVisible] = useState(true);
@@ -105,7 +106,7 @@ export default function LanyardScene({ onReady }: { onReady?: () => void }) {
       for (const t of made) t.dispose();
       setTextures(null);
     };
-  }, []);
+  }, [copy]);
 
   const visible = inView && tabVisible;
   // Off-screen or hidden tab: no frames. Card at rest: render only on demand (resize, events).

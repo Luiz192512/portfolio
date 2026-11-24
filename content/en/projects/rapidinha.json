@@ -1,0 +1,32 @@
+{
+  "title": "Rapidinha",
+  "kind": "ACADEMIC WORK",
+  "summary": "Web system for pre-orders and organized pickup at school canteens, with stock control. React, Vite, TypeScript and Supabase with Row Level Security.",
+  "cover": {
+    "src": "/projects/rapidinha/cover.webp",
+    "alt": "Cover of the Rapidinha project",
+    "fit": "cover"
+  },
+  "tech": [
+    "React",
+    "Vite",
+    "TypeScript",
+    "Tailwind CSS",
+    "Supabase",
+    "Playwright"
+  ],
+  "features": [
+    "Responsive interface for students and canteen staff",
+    "Object-oriented modeling with a list, a FIFO queue and a stack",
+    "Supabase Auth and PostgreSQL with per-profile Row Level Security",
+    "Tests with Vitest, Testing Library and Playwright",
+    "Published on GitHub Pages"
+  ],
+  "link": {
+    "status": "live",
+    "url": "https://luiz192512.github.io/rapidinha/"
+  },
+  "repoUrl": "https://github.com/Luiz192512/rapidinha",
+  "featured": false,
+  "order": 9
+}

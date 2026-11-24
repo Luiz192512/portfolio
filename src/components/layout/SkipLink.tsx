@@ -1,6 +1,7 @@
-import { copy } from '@/lib/copy';
+import { getCopy } from '@/lib/i18n/server';
 
-export function SkipLink() {
+export async function SkipLink() {
+  const copy = await getCopy();
   return (
     <a
       href="#conteudo"

@@ -1,4 +1,5 @@
-import { copy } from '@/lib/copy';
+import { useCopy, useLocale } from '@/lib/i18n/client';
+import type { Locale } from '@/lib/i18n/locales';
 
 export type PublicComment = {
   id: string;
@@ -28,10 +29,10 @@ export function avatarInitial(name: string): string {
   return (first ?? Array.from(trimmed)[0] ?? '?').toLocaleUpperCase('pt-BR');
 }
 
-export function formatCommentDate(iso: string): string {
+export function formatCommentDate(iso: string, locale: Locale = 'pt'): string {
   const date = new Date(iso);
   if (Number.isNaN(date.getTime())) return '';
-  return new Intl.DateTimeFormat('pt-BR', { dateStyle: 'medium', timeZone: 'America/Sao_Paulo' }).format(date);
+  return new Intl.DateTimeFormat(locale === 'en' ? 'en-US' : 'pt-BR', { dateStyle: 'medium', timeZone: 'America/Sao_Paulo' }).format(date);
 }
 
 /**
@@ -39,7 +40,9 @@ export function formatCommentDate(iso: string): string {
  * dangerouslySetInnerHTML, no markdown, no auto-linking.
  */
 export function CommentItem({ comment }: { comment: PublicComment }) {
-  const date = formatCommentDate(comment.createdAt);
+  const copy = useCopy();
+  const locale = useLocale();
+  const date = formatCommentDate(comment.createdAt, locale);
   return (
     <li
       className={[
@@ -74,6 +77,7 @@ export function CommentItem({ comment }: { comment: PublicComment }) {
 }
 
 export function CommentSkeleton() {
+  const copy = useCopy();
   return (
     <div role="status" aria-label={copy.comments.loading} className="grid gap-3">
       <span className="sr-only">{copy.comments.loading}</span>

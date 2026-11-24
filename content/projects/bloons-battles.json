@@ -1,0 +1,30 @@
+{
+  "title": "Bloons Battles",
+  "kind": "TRABALHO ACADÊMICO",
+  "summary": "Tower defense em C++17 e raylib com modo solo e batalha em rede, usando sockets TCP, threads, memória compartilhada e exclusão mútua. Trabalho de Sistemas Operacionais.",
+  "cover": {
+    "src": "/projects/bloons-battles/cover.webp",
+    "alt": "Capa do projeto Bloons Battles",
+    "fit": "cover"
+  },
+  "tech": [
+    "C++17",
+    "raylib",
+    "Sockets TCP",
+    "std::thread",
+    "std::mutex"
+  ],
+  "features": [
+    "Batalha 1v1 em lockstep, com simulação determinística entre Windows e Linux",
+    "22 torres com 3 caminhos de 5 melhorias, 18 heróis, 17 tipos de bloon e 100 rodadas",
+    "Modos solo, batalha em rede e coop em LAN",
+    "Arte e sons gerados por código, sem arquivos externos",
+    "Executável único para Windows nas releases do GitHub"
+  ],
+  "link": {
+    "status": "none"
+  },
+  "repoUrl": "https://github.com/Luiz192512/bloons-battles",
+  "featured": false,
+  "order": 8
+}

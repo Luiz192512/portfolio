@@ -2,7 +2,7 @@
 
 import { Component, useCallback, useEffect, useState, useSyncExternalStore, type ReactNode } from 'react';
 import dynamic from 'next/dynamic';
-import { copy } from '@/lib/copy';
+import { useCopy } from '@/lib/i18n/client';
 import { hasRealWebGL, useLanyardEligibility } from './use-lanyard-eligibility';
 
 /** Set to false to disable the 3D scene; while false the chunk is never requested. */
@@ -71,6 +71,7 @@ function whenIdle(cb: () => void): () => void {
  * initial HTML. The 3D scene mounts absolutely inside the same box, so nothing shifts.
  */
 export function LanyardSlot({ children }: { children: ReactNode }) {
+  const copy = useCopy();
   const mode = useLanyardEligibility();
   const [load, setLoad] = useState(false);
   const [ready, setReady] = useState(false);

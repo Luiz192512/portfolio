@@ -1,0 +1,74 @@
+{
+  "name": "Luiz Gustavo Lorençone Enz",
+  "shortName": "Luiz Gustavo Enz",
+  "nameLines": [
+    "Luiz Gustavo",
+    "Lorençone",
+    "Enz"
+  ],
+  "role": "Junior Full Stack Developer",
+  "roleShort": "JUNIOR FULL STACK",
+  "location": "Maringá, PR",
+  "available": true,
+  "heroIntro": "Software Engineering student and founder of Enz Softwares. I build with AI every day: LLM automations, prompt evaluation and complete systems, like Curbside and a job application automation.",
+  "bio": "Software Engineering student at Unicesumar (4th semester, graduating in 2028), with a technical background in Systems Development. Founder of Enz Softwares, where I build websites and systems for small businesses. I build with AI every day: LLM automations, prompt evaluation with a test set and complete systems from scratch, like Curbside. Looking for an internship or junior role in AI.",
+  "typewriterPhrases": [
+    "Junior Full Stack",
+    "LLM automations",
+    "Back-end on Cloudflare Workers",
+    "Prompts evaluated with data"
+  ],
+  "heroChips": [
+    "Python",
+    "LLMs",
+    "TypeScript",
+    "Cloudflare Workers"
+  ],
+  "hints": [
+    "explore my projects below",
+    "open to internships and AI roles"
+  ],
+  "photo": {
+    "src": "/images/photo-480.webp",
+    "alt": "Photo of Luiz Gustavo Lorençone Enz",
+    "fit": "cover"
+  },
+  "cvPath": "/cv/luiz-gustavo-enz-cv-en.pdf",
+  "connect": [
+    {
+      "kind": "linkedin",
+      "label": "LinkedIn",
+      "display": "in/luiz-gustavo-lorencone-enz-370b15279",
+      "url": "https://linkedin.com/in/luiz-gustavo-lorencone-enz-370b15279",
+      "personal": true
+    },
+    {
+      "kind": "github",
+      "label": "GitHub",
+      "display": "github.com/Luiz192512",
+      "url": "https://github.com/Luiz192512",
+      "personal": true
+    },
+    {
+      "kind": "instagram",
+      "label": "Instagram",
+      "display": "@enz.softwares",
+      "url": "https://instagram.com/enz.softwares",
+      "personal": false
+    },
+    {
+      "kind": "site",
+      "label": "Site",
+      "display": "enzsoftwares.com",
+      "url": "https://enzsoftwares.com",
+      "personal": false
+    },
+    {
+      "kind": "email",
+      "label": "E-mail",
+      "display": "enz.luizgustavo@gmail.com",
+      "url": "mailto:enz.luizgustavo@gmail.com",
+      "personal": true
+    }
+  ]
+}

@@ -1,5 +1,5 @@
-/** Every pt-BR UI string. Owner data (bio, projects, links) lives in content/. */
-export const copy = {
+/** Every UI string, per locale. Owner data (bio, projects, links) lives in content/. */
+const pt = {
   nav: {
     wordmark: 'luiz.enz',
     ariaLabel: 'Principal',
@@ -128,6 +128,143 @@ export const copy = {
   common: {
     loadingProjects: 'Carregando projetos',
   },
-} as const;
+  lang: { label: 'Idioma', switchTo: 'Mudar para inglês', short: 'EN' },
+  marquee: { label: 'Tecnologias que uso', pause: 'Pausar animação', play: 'Retomar animação' },
+};
 
-export type Copy = typeof copy;
+export type Copy = typeof pt;
+
+const en: Copy = {
+  nav: {
+    wordmark: 'luiz.enz',
+    ariaLabel: 'Main',
+    links: [
+      { id: 'home', label: 'Home' },
+      { id: 'about', label: 'About' },
+      { id: 'portfolio', label: 'Portfolio' },
+      { id: 'contato', label: 'Contact' },
+    ],
+    openMenu: 'Open menu',
+    closeMenu: 'Close menu',
+    skipLink: 'Skip to content',
+  },
+  footer: {
+    rights: '© 2026 Luiz Gustavo Lorençone Enz',
+    built: 'Built with Next.js, Motion and Three.js',
+  },
+  hero: {
+    badge: 'AVAILABLE FOR WORK',
+    line1: 'Full Stack',
+    line2: 'Developer',
+    scroll: 'SCROLL',
+    lanyardCaption: 'DRAG THE BADGE',
+    lanyardLabel: '3D badge with the photo of Luiz Gustavo, drag it to make it swing',
+    strap: 'LUIZ ENZ · FULL STACK',
+    card3d: '3D CARD',
+    photoAlt: 'Photo of Luiz Gustavo Lorençone Enz',
+  },
+  about: {
+    eyebrow: 'ABOUT ME',
+    download: 'Download resume',
+    viewProjects: 'View projects',
+    stats: {
+      projects: { label: 'PROJECTS', caption: 'projects in this portfolio' },
+      certificates: { label: 'CERTIFICATES', caption: 'none published yet' },
+      experiences: { label: 'EXPERIENCE' },
+    },
+  },
+  portfolio: {
+    eyebrow: 'PORTFOLIO',
+    title: 'Project showcase',
+    intro: 'Own and client projects, certificates and the technologies I use every day.',
+    tabsLabel: 'Showcase',
+    tabs: { projects: 'Projects', certificates: 'Certificates', stack: 'Tech Stack', stackShort: 'Stack' },
+    details: 'Details',
+    showMore: 'Show more',
+    showLess: 'Show less',
+    linkStatus: { privateTool: 'Private tool', none: 'No link' },
+    certificatesEmpty: {
+      title: 'No certificates published yet',
+      text: 'Certificates show up here as soon as they are added. Meanwhile, check out the projects.',
+      action: 'View projects',
+    },
+    stackGroups: {
+      ai: 'AI AND LLMS',
+      languages: 'LANGUAGES',
+      'frontend-mobile': 'FRONT-END AND MOBILE',
+      backend: 'BACK-END',
+      data: 'DATA',
+      automation: 'AUTOMATION',
+      tools: 'TOOLS',
+    },
+  },
+  project: {
+    back: 'Back',
+    techCaption: 'TECHNOLOGIES USED',
+    techCaptionShort: 'TECHNOLOGIES',
+    featuresCaption: 'FEATURES',
+    featuresTitle: 'Main features',
+    demo: 'View demo',
+    noDemo: 'No live demo',
+    repo: 'View repository',
+    privateRepo: 'Private repository',
+  },
+  contact: {
+    eyebrow: 'CONTACT',
+    title: 'Get in touch',
+    intro: 'Jobs, projects or a chat about AI and back-end. I reply by e-mail.',
+    formTitle: 'Send a message',
+    labels: { name: 'NAME', email: 'E-MAIL', message: 'MESSAGE' },
+    placeholders: {
+      name: 'Your name',
+      email: 'you@email.com',
+      message: 'Tell me a bit about the role or the project',
+    },
+    submit: 'Send message',
+    sending: 'Sending...',
+    success: 'Message sent. I will reply by e-mail.',
+    errors: {
+      name: 'Enter your name.',
+      email: 'Enter a valid e-mail.',
+      message: 'Write a message.',
+      messageShort: 'Write at least 10 characters.',
+      messageLong: 'The message is over 2000 characters.',
+      rateLimit: 'Too many messages in a row. Try again in a few minutes.',
+      generic: 'Could not send right now. Try again or write to enz.luizgustavo@gmail.com.',
+    },
+    connectHeading: 'CONNECT',
+  },
+  comments: {
+    title: 'Comments',
+    count: (n: number): string => (n === 1 ? '1 comment' : `${n} comments`),
+    labels: { name: 'NAME', body: 'COMMENT' },
+    placeholders: { name: 'How you want to appear', body: 'Leave a note' },
+    submit: 'Post comment',
+    pending: 'Comment received. It shows up here once approved.',
+    emptyTitle: 'No comments yet',
+    emptyText: 'Be the first to leave a note.',
+    pinned: 'PINNED',
+    loading: 'Loading comments',
+    errors: {
+      name: 'Enter your name.',
+      body: 'Write a comment.',
+      nameChars: 'Use only letters, numbers and spaces in the name.',
+      bodyLong: 'The comment is over 500 characters.',
+      rateLimit: 'Too many comments in a row. Try again in a few minutes.',
+      publish: 'Could not post right now. Try again later.',
+      load: 'Could not load the comments.',
+    },
+  },
+  notFound: {
+    title: 'Page not found',
+    text: 'The address does not exist or has moved.',
+    action: 'Back to home',
+  },
+  common: {
+    loadingProjects: 'Loading projects',
+  },
+  lang: { label: 'Language', switchTo: 'Switch to Portuguese', short: 'PT' },
+  marquee: { label: 'Technologies I use', pause: 'Pause animation', play: 'Resume animation' },
+};
+
+export const copies = { pt, en } as const;

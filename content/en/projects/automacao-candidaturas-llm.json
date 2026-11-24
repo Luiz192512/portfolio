@@ -1,0 +1,32 @@
+{
+  "title": "Job application automation with LLMs",
+  "kind": "PERSONAL PROJECT",
+  "summary": "Collects job posts from several sources, screens each with one language model and confirms with another, with JSON answers and a check for claims not backed by the resume.",
+  "cover": {
+    "src": "/projects/automacao-candidaturas-llm/cover.webp",
+    "alt": "Cover of the job application automation project with language models",
+    "fit": "cover"
+  },
+  "tech": [
+    "Python",
+    "Groq",
+    "Gemini",
+    "Claude",
+    "WhatsApp",
+    "JSON",
+    "Cron"
+  ],
+  "features": [
+    "Collects job posts from several sources",
+    "Screening with one model and confirmation with another",
+    "JSON answers and a check for claims not backed by the resume",
+    "Prompt tuned with an evaluation set (train, validation and test)",
+    "Automatic model switch when the quota runs out",
+    "Scheduled runs and a WhatsApp bot that sends summaries and takes commands"
+  ],
+  "link": {
+    "status": "private-tool"
+  },
+  "featured": true,
+  "order": 0
+}

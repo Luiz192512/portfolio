@@ -1,0 +1,30 @@
+{
+  "title": "Téo, customer-service agent",
+  "kind": "PERSONAL PROJECT",
+  "summary": "Text customer-service agent for a fictional instrument store: an LLM with function calling over deterministic tools, with BM25 for the store policies.",
+  "cover": {
+    "src": "/projects/emporio-da-musica-agent/cover.webp",
+    "alt": "Cover of the Téo customer-service agent project",
+    "fit": "cover"
+  },
+  "tech": [
+    "Python",
+    "LLMs",
+    "Function calling",
+    "BM25",
+    "pytest"
+  ],
+  "features": [
+    "Answers about the catalog (price, promotions and stock), orders and store policies",
+    "Structured tools over CSVs and BM25 search over the policy manual",
+    "Plain Python for what must be exact: money, dates, hours and identity",
+    "Politely refuses anything out of scope",
+    "62 automated tests that run without an API key"
+  ],
+  "link": {
+    "status": "none"
+  },
+  "repoUrl": "https://github.com/Luiz192512/emporio-da-musica-agent",
+  "featured": false,
+  "order": 6
+}

@@ -1,12 +1,13 @@
 'use client';
 
 import { useCallback, useRef, useState } from 'react';
-import { copy } from '@/lib/copy';
+import { useCopy } from '@/lib/i18n/client';
 import { CommentForm } from './CommentForm';
 import { CommentList, type CommentsState } from './CommentList';
 
 /** Client shell: header with count, form, and the lazily fetched list (one fetch per page view). */
 export function CommentsBoard() {
+  const copy = useCopy();
   const [state, setState] = useState<CommentsState>({ kind: 'loading' });
   const started = useRef(false);
 

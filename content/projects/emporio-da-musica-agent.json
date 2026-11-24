@@ -1,0 +1,30 @@
+{
+  "title": "Téo, agente de atendimento",
+  "kind": "PROJETO PESSOAL",
+  "summary": "Agente de atendimento por texto para uma loja de instrumentos fictícia: um LLM com function calling sobre ferramentas determinísticas, com BM25 para as políticas da loja.",
+  "cover": {
+    "src": "/projects/emporio-da-musica-agent/cover.webp",
+    "alt": "Capa do projeto Téo, agente de atendimento",
+    "fit": "cover"
+  },
+  "tech": [
+    "Python",
+    "LLMs",
+    "Function calling",
+    "BM25",
+    "pytest"
+  ],
+  "features": [
+    "Responde sobre catálogo (preço, promoções e estoque), pedidos e políticas da loja",
+    "Ferramentas estruturadas sobre CSVs e busca BM25 no manual de políticas",
+    "Python puro para o que precisa ser exato: dinheiro, datas, horários e identidade",
+    "Recusa com educação o que está fora do escopo",
+    "62 testes automatizados que rodam sem chave de API"
+  ],
+  "link": {
+    "status": "none"
+  },
+  "repoUrl": "https://github.com/Luiz192512/emporio-da-musica-agent",
+  "featured": false,
+  "order": 6
+}

@@ -1,8 +1,9 @@
 import { StatCard } from '@/components/ui/StatCard';
-import { copy } from '@/lib/copy';
+import { getCopy } from '@/lib/i18n/server';
 import type { ContentStats } from '@/lib/content/stats';
 
-export function AboutStats({ stats }: { stats: ContentStats }) {
+export async function AboutStats({ stats }: { stats: ContentStats }) {
+  const copy = await getCopy();
   return (
     <div className="mt-12 grid grid-cols-3 gap-3 md:gap-6">
       <StatCard

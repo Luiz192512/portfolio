@@ -3,7 +3,9 @@
 import { useId, useState, type FormEvent } from 'react';
 import { Button } from '@/components/ui/Button';
 import { errorClass, fieldClass, honeypotClass, labelClass } from '@/components/sections/contact/field-styles';
-import { copy } from '@/lib/copy';
+import { copies } from '@/lib/copy';
+import { useCopy, useLocale } from '@/lib/i18n/client';
+import type { Locale } from '@/lib/i18n/locales';
 import { sanitizeText } from '@/lib/security/sanitize';
 import { checkComment, type CommentCode } from '@/components/sections/contact/client-validation';
 
@@ -14,17 +16,15 @@ type Status =
   | { kind: 'pending' }
   | { kind: 'error'; text: string };
 
-const E = copy.comments.errors;
-
-const CODE_TO_TEXT: Record<CommentCode, string> = {
-  name_required: E.name,
-  name_too_long: E.name,
-  name_invalid: E.nameChars,
-  body_required: E.body,
-  body_too_long: E.bodyLong,
-};
-
-export function mapCommentErrors(codes: Record<string, string>): FieldErrors {
+export function mapCommentErrors(codes: Record<string, string>, locale: Locale = 'pt'): FieldErrors {
+  const E = copies[locale].comments.errors;
+  const CODE_TO_TEXT: Record<CommentCode, string> = {
+    name_required: E.name,
+    name_too_long: E.name,
+    name_invalid: E.nameChars,
+    body_required: E.body,
+    body_too_long: E.bodyLong,
+  };
   const out: FieldErrors = {};
   if (codes.name) out.name = CODE_TO_TEXT[codes.name as CommentCode] ?? E.name;
   if (codes.body) out.body = CODE_TO_TEXT[codes.body as CommentCode] ?? E.body;
@@ -32,6 +32,9 @@ export function mapCommentErrors(codes: Record<string, string>): FieldErrors {
 }
 
 export function CommentForm() {
+  const copy = useCopy();
+  const locale = useLocale();
+  const E = copy.comments.errors;
   const uid = useId();
   const [startedAt] = useState(() => Date.now());
   const [errors, setErrors] = useState<FieldErrors>({});
@@ -53,7 +56,7 @@ export function CommentForm() {
 
     const found = checkComment(input);
     if (Object.keys(found).length > 0) {
-      setErrors(mapCommentErrors(found));
+      setErrors(mapCommentErrors(found, locale));
       setStatus({ kind: 'idle' });
       return;
     }
@@ -75,7 +78,7 @@ export function CommentForm() {
       if (res.status === 400) {
         const body = (await res.json().catch(() => null)) as { errors?: Record<string, string> } | null;
         if (body?.errors) {
-          setErrors(mapCommentErrors(body.errors));
+          setErrors(mapCommentErrors(body.errors, locale));
           setStatus({ kind: 'idle' });
           return;
         }
