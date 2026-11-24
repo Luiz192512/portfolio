@@ -2,7 +2,9 @@
 
 import { useId, useState, type FormEvent } from 'react';
 import { Button } from '@/components/ui/Button';
-import { copy } from '@/lib/copy';
+import { copies } from '@/lib/copy';
+import { useCopy, useLocale } from '@/lib/i18n/client';
+import type { Locale } from '@/lib/i18n/locales';
 import { checkContact, type ContactCode } from './client-validation';
 import { errorClass, fieldClass, honeypotClass, labelClass } from './field-styles';
 
@@ -13,19 +15,18 @@ type Status =
   | { kind: 'success' }
   | { kind: 'error'; text: string };
 
-const E = copy.contact.errors;
 
-const CODE_TO_TEXT: Record<ContactCode, string> = {
-  name_required: E.name,
-  name_too_long: E.name,
-  email_invalid: E.email,
-  message_required: E.message,
-  message_too_short: E.messageShort,
-  message_too_long: E.messageLong,
-};
-
-/** Maps validation codes (client or server) to pt-BR copy. Unknown codes fall back to the field default. */
-export function mapFieldErrors(codes: Record<string, string>): FieldErrors {
+/** Maps validation codes (client or server) to localized copy. Unknown codes fall back to the field default. */
+export function mapFieldErrors(codes: Record<string, string>, locale: Locale = 'pt'): FieldErrors {
+  const E = copies[locale].contact.errors;
+  const CODE_TO_TEXT: Record<ContactCode, string> = {
+    name_required: E.name,
+    name_too_long: E.name,
+    email_invalid: E.email,
+    message_required: E.message,
+    message_too_short: E.messageShort,
+    message_too_long: E.messageLong,
+  };
   const out: FieldErrors = {};
   const fallback = { name: E.name, email: E.email, message: E.message } as const;
   for (const field of ['name', 'email', 'message'] as const) {
@@ -36,6 +37,9 @@ export function mapFieldErrors(codes: Record<string, string>): FieldErrors {
 }
 
 export function ContactForm() {
+  const copy = useCopy();
+  const locale = useLocale();
+  const E = copy.contact.errors;
   const uid = useId();
   const [errors, setErrors] = useState<FieldErrors>({});
   const [status, setStatus] = useState<Status>({ kind: 'idle' });
@@ -55,7 +59,7 @@ export function ContactForm() {
 
     const found = checkContact(input);
     if (Object.keys(found).length > 0) {
-      setErrors(mapFieldErrors(found));
+      setErrors(mapFieldErrors(found, locale));
       setStatus({ kind: 'idle' });
       return;
     }
@@ -76,7 +80,7 @@ export function ContactForm() {
       if (res.status === 400) {
         const body = (await res.json().catch(() => null)) as { errors?: Record<string, string> } | null;
         if (body?.errors) {
-          setErrors(mapFieldErrors(body.errors));
+          setErrors(mapFieldErrors(body.errors, locale));
           setStatus({ kind: 'idle' });
           return;
         }

@@ -1,0 +1,32 @@
+{
+  "title": "Rapidinha",
+  "kind": "TRABALHO ACADÊMICO",
+  "summary": "Sistema web de pedidos antecipados e retirada organizada para cantinas escolares, com controle de estoque. React, Vite, TypeScript e Supabase com Row Level Security.",
+  "cover": {
+    "src": "/projects/rapidinha/cover.webp",
+    "alt": "Capa do projeto Rapidinha",
+    "fit": "cover"
+  },
+  "tech": [
+    "React",
+    "Vite",
+    "TypeScript",
+    "Tailwind CSS",
+    "Supabase",
+    "Playwright"
+  ],
+  "features": [
+    "Interface responsiva para o aluno e para a gestão da cantina",
+    "Modelagem orientada a objetos com lista, fila FIFO e pilha",
+    "Supabase Auth e PostgreSQL com Row Level Security por perfil",
+    "Testes com Vitest, Testing Library e Playwright",
+    "Publicado no GitHub Pages"
+  ],
+  "link": {
+    "status": "live",
+    "url": "https://luiz192512.github.io/rapidinha/"
+  },
+  "repoUrl": "https://github.com/Luiz192512/rapidinha",
+  "featured": false,
+  "order": 9
+}

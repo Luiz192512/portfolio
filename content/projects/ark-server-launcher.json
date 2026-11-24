@@ -1,0 +1,30 @@
+{
+  "title": "ENZ Launcher",
+  "kind": "FERRAMENTA DESKTOP",
+  "summary": "Launcher para Windows do servidor dedicado de ARK: escolha o mapa, inicie, pare e acompanhe o servidor em uma janela. Tauri 2, Rust, React e TypeScript.",
+  "cover": {
+    "src": "/projects/ark-server-launcher/cover.webp",
+    "alt": "Capa do ENZ Launcher",
+    "fit": "cover"
+  },
+  "tech": [
+    "Tauri 2",
+    "Rust",
+    "React",
+    "TypeScript",
+    "Vite"
+  ],
+  "features": [
+    "Escolha de mapa e início e parada do servidor",
+    "Painel com estado, tempo de atividade, CPU, memória, jogadores e log ao vivo",
+    "Salvar o jogo e regerar criaturas selvagens via RCON",
+    "Senha de administrador guardada no Gerenciador de Credenciais do Windows",
+    "Instalador para Windows publicado nas releases do GitHub"
+  ],
+  "link": {
+    "status": "none"
+  },
+  "repoUrl": "https://github.com/Luiz192512/Ark-Server-Launcher",
+  "featured": false,
+  "order": 7
+}

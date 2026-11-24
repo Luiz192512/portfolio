@@ -4,7 +4,7 @@ import { useEffect, useId, useRef, useState } from 'react';
 import { m } from 'motion/react';
 import { EASE_EXPO_OUT } from '@/components/motion/tokens';
 import { Icon } from '@/components/ui/Icon';
-import { copy } from '@/lib/copy';
+import { useCopy } from '@/lib/i18n/client';
 import { NavAnchor } from './NavAnchor';
 import type { NavLink } from './nav-types';
 
@@ -17,6 +17,7 @@ type MobileMenuProps = {
 
 /** Native <dialog>: showModal() gives focus trap, Esc and an inert background. */
 export function MobileMenu({ links, hrefFor, onHome, active }: MobileMenuProps) {
+  const copy = useCopy();
   const dialogRef = useRef<HTMLDialogElement>(null);
   const toggleRef = useRef<HTMLButtonElement>(null);
   const [open, setOpen] = useState(false);

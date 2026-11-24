@@ -1,7 +1,8 @@
-import { copy } from '@/lib/copy';
+import { getCopy } from '@/lib/i18n/server';
 import type { StackGroup } from '@/lib/content/schemas';
 
-export function TechStackGrid({ stack }: { stack: readonly StackGroup[] }) {
+export async function TechStackGrid({ stack }: { stack: readonly StackGroup[] }) {
+  const copy = await getCopy();
   return (
     <div className="grid gap-8">
       {stack.map((group) => (

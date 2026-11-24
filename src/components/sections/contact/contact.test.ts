@@ -17,7 +17,7 @@ const connect = [
 describe('contact section parts', () => {
   it('lists only LinkedIn, GitHub, site and e-mail', () => {
     expect(selectConnectEntries(connect).map((e) => e.kind)).toEqual(['linkedin', 'github', 'site', 'email']);
-    const html = renderToStaticMarkup(createElement(ConnectList, { connect }));
+    const html = renderToStaticMarkup(createElement(ConnectList, { connect, heading: 'CONECTE-SE' }));
     expect(html).toContain('mailto:a@b.c');
     expect(html).not.toMatch(/tel:|wa\.me|whatsapp|instagram/i);
   });

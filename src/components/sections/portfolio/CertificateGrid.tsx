@@ -3,12 +3,13 @@
 import type { ReactNode } from 'react';
 import { Button } from '@/components/ui/Button';
 import { EmptyState } from '@/components/ui/EmptyState';
-import { copy } from '@/lib/copy';
+import { useCopy } from '@/lib/i18n/client';
 import { ProjectGrid } from './ProjectGrid';
 import { useTabs } from './Tabs';
 
 /** Cards arrive pre-rendered. With none, shows the empty state whose action selects the projects tab. */
 export function CertificateGrid({ items }: { items: ReactNode[] }) {
+  const copy = useCopy();
   const { actions } = useTabs();
   if (items.length === 0) {
     return (

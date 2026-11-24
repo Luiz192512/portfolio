@@ -1,5 +1,4 @@
 import { Icon } from '@/components/ui/Icon';
-import { copy } from '@/lib/copy';
 import type { Profile } from '@/lib/content/schemas';
 
 type ConnectEntry = Profile['connect'][number];
@@ -11,11 +10,11 @@ export function selectConnectEntries(connect: Profile['connect']): ConnectEntry[
   return KINDS.flatMap((kind) => connect.filter((entry) => entry.kind === kind).slice(0, 1));
 }
 
-export function ConnectList({ connect }: { connect: Profile['connect'] }) {
+export function ConnectList({ connect, heading }: { connect: Profile['connect']; heading: string }) {
   const entries = selectConnectEntries(connect);
   return (
     <div>
-      <h3 className="font-mono text-xs uppercase tracking-[0.2em] text-accent">{copy.contact.connectHeading}</h3>
+      <h3 className="font-mono text-xs uppercase tracking-[0.2em] text-accent">{heading}</h3>
       <ul className="mt-4 grid gap-3">
         {entries.map((entry) => {
           const isMail = entry.kind === 'email';

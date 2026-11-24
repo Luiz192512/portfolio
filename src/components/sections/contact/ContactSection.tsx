@@ -1,7 +1,7 @@
 import { CommentsPanel } from '@/components/comments/CommentsPanel';
 import { GlassPanel } from '@/components/ui/GlassPanel';
 import { SectionHeading } from '@/components/ui/SectionHeading';
-import { copy } from '@/lib/copy';
+import { getCopy } from '@/lib/i18n/server';
 import type { Profile } from '@/lib/content/schemas';
 import { ConnectList } from './ConnectList';
 import { ContactForm } from './ContactForm';
@@ -11,7 +11,8 @@ type ContactSectionProps = {
   commentsEnabled: boolean;
 };
 
-export function ContactSection({ profile, commentsEnabled }: ContactSectionProps) {
+export async function ContactSection({ profile, commentsEnabled }: ContactSectionProps) {
+  const copy = await getCopy();
   return (
     <section
       id="contato"
@@ -40,7 +41,7 @@ export function ContactSection({ profile, commentsEnabled }: ContactSectionProps
             </h3>
             <ContactForm />
           </div>
-          <ConnectList connect={profile.connect} />
+          <ConnectList connect={profile.connect} heading={copy.contact.connectHeading} />
         </GlassPanel>
         {commentsEnabled ? <CommentsPanel /> : null}
       </div>

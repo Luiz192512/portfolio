@@ -1,6 +1,8 @@
 import { expect, test } from '@playwright/test';
-import { copy } from '../src/lib/copy';
+import { copies } from '../src/lib/copy';
 import { captureContactPosts, fillContact, looksSafe, PROJECTS, trackConsole } from './helpers/smoke';
+
+const copy = copies.pt;
 
 /** Phase 7 smoke suite. Runs under both the "desktop" (1440x900) and "mobile" (390x844) projects. */
 

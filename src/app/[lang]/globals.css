@@ -138,6 +138,20 @@ select:focus-visible {
     100% 100%,
     var(--grid-size) var(--grid-size),
     var(--grid-size) var(--grid-size);
+  overflow: hidden;
+}
+
+/* Scroll-driven aura: transform is set from ScrollAura, so it stays on the compositor. */
+.aura {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 70vmin;
+  height: 70vmin;
+  margin-left: -35vmin;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 167, 248, 0.16) 0%, rgba(0, 167, 248, 0) 65%);
+  will-change: transform;
 }
 
 @media (min-width: 768px) {

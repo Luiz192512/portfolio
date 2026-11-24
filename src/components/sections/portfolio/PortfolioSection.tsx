@@ -1,5 +1,5 @@
 import { SectionHeading } from '@/components/ui/SectionHeading';
-import { copy } from '@/lib/copy';
+import { getCopy } from '@/lib/i18n/server';
 import type { Certificate, Project, StackGroup } from '@/lib/content/schemas';
 import { CertificateGrid } from './CertificateGrid';
 import { ProjectCard } from './ProjectCard';
@@ -23,7 +23,8 @@ function CertificateCard({ certificate }: { certificate: Certificate }) {
   );
 }
 
-export function PortfolioSection({ projects, certificates, stack }: PortfolioSectionProps) {
+export async function PortfolioSection({ projects, certificates, stack }: PortfolioSectionProps) {
+  const copy = await getCopy();
   const t = copy.portfolio;
   return (
     <section id="portfolio" aria-labelledby="portfolio-title" className="container-content section-pad">

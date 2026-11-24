@@ -5,7 +5,8 @@ import { Eyebrow } from '@/components/ui/Eyebrow';
 import { GlassPanel } from '@/components/ui/GlassPanel';
 import { MonoHint } from '@/components/ui/MonoHint';
 import { UnavailableAction } from '@/components/ui/UnavailableAction';
-import { copy } from '@/lib/copy';
+import { localePath } from '@/lib/i18n/locales';
+import { getCopy, getLocale } from '@/lib/i18n/server';
 import type { Project } from '@/lib/content/schemas';
 import { hasDemoDataNote, isClientWork, projectNotes } from './notes';
 import { ProjectCover } from './ProjectCover';
@@ -22,7 +23,9 @@ function StatTile({ value, caption, shortCaption }: { value: number; caption: st
   );
 }
 
-export function ProjectDetail({ project }: { project: Project }) {
+export async function ProjectDetail({ project }: { project: Project }) {
+  const copy = await getCopy();
+  const locale = await getLocale();
   const { slug, title, kind, summary, cover, tech, features, link, repoUrl } = project;
   const t = copy.project;
   const client = isClientWork(project);
@@ -30,7 +33,7 @@ export function ProjectDetail({ project }: { project: Project }) {
   return (
     <article className="container-content pt-28 pb-[var(--section-pad)] md:pt-36">
       <Link
-        href="/#portfolio"
+        href={`${localePath(locale)}#portfolio`}
         className="inline-flex min-h-11 items-center gap-2 font-mono text-sm text-text-muted transition-colors duration-[180ms] ease-micro hover:text-accent"
       >
         <span aria-hidden="true">&larr;</span>
@@ -43,8 +46,8 @@ export function ProjectDetail({ project }: { project: Project }) {
         <p className="mt-5 max-w-3xl text-base text-text-muted md:text-lg">{summary}</p>
         {client || demoData ? (
           <div className="mt-4 grid gap-1">
-            {client ? <MonoHint>{projectNotes.client}</MonoHint> : null}
-            {demoData ? <MonoHint>{projectNotes.demoData}</MonoHint> : null}
+            {client ? <MonoHint>{projectNotes[locale].client}</MonoHint> : null}
+            {demoData ? <MonoHint>{projectNotes[locale].demoData}</MonoHint> : null}
           </div>
         ) : null}
       </header>

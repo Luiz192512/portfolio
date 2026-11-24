@@ -1,0 +1,27 @@
+{
+  "title": "G7 Arena Padel CRM",
+  "kind": "CLIENT, PILOT",
+  "summary": "CRM pilot built with Next.js 16, Prisma, Neon and R3F: scheduling, finances and an owner dashboard. The demo data is fictional.",
+  "cover": {
+    "src": "/projects/g7-padel-crm/cover.webp",
+    "alt": "Cover of the G7 Arena Padel CRM"
+  },
+  "tech": [
+    "Next.js 16",
+    "Prisma",
+    "Neon",
+    "React Three Fiber",
+    "Motion"
+  ],
+  "features": [
+    "Scheduling",
+    "Finances",
+    "Owner dashboard"
+  ],
+  "link": {
+    "status": "live",
+    "url": "https://g7-padel-crm.vercel.app"
+  },
+  "featured": false,
+  "order": 5
+}

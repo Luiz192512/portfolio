@@ -1,11 +1,12 @@
 import Image from 'next/image';
-import { copy } from '@/lib/copy';
+import { getCopy } from '@/lib/i18n/server';
 import type { Profile } from '@/lib/content/schemas';
 
 const STRAP_REPEAT = 8;
 
 /** Static lanyard card in HTML and CSS (Server Component). Sizes follow architecture 4.1. */
-export function StaticLanyard({ profile }: { profile: Profile }) {
+export async function StaticLanyard({ profile }: { profile: Profile }) {
+  const copy = await getCopy();
   return (
     <div className="flex h-full flex-col items-center">
       <div

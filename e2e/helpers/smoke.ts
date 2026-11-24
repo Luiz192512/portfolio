@@ -8,6 +8,10 @@ export const PROJECTS = [
   { slug: 'tszr15', title: 'TSZR15 Store', demo: null, repo: 'https://github.com/Luiz192512/TSZR15' },
   { slug: 'msx-baterias', title: 'MSX Baterias', demo: 'https://bateriasmsx.com.br', repo: null },
   { slug: 'g7-padel-crm', title: 'G7 Arena Padel CRM', demo: 'https://g7-padel-crm.vercel.app', repo: null },
+  { slug: 'emporio-da-musica-agent', title: 'Téo, agente de atendimento', demo: null, repo: 'https://github.com/Luiz192512/emporio-da-musica-agent' },
+  { slug: 'ark-server-launcher', title: 'ENZ Launcher', demo: null, repo: 'https://github.com/Luiz192512/Ark-Server-Launcher' },
+  { slug: 'bloons-battles', title: 'Bloons Battles', demo: null, repo: 'https://github.com/Luiz192512/bloons-battles' },
+  { slug: 'rapidinha', title: 'Rapidinha', demo: 'https://luiz192512.github.io/rapidinha/', repo: 'https://github.com/Luiz192512/rapidinha' },
 ] as const;
 
 /** Browser console noise that the app triggers on purpose (failed resource loads on expected responses). */

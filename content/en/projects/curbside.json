@@ -1,0 +1,34 @@
+{
+  "title": "Curbside",
+  "kind": "OWN PRODUCT",
+  "summary": "Prospecting CRM in 4 countries (BR, PT, ES, US): collects leads from OpenStreetMap and Overture Maps, writes the outreach in each country's language and sends e-mails from a queue. Cloudflare Workers, D1 and a React Native app.",
+  "cover": {
+    "src": "/projects/curbside/cover.webp",
+    "alt": "Curbside icon",
+    "fit": "contain"
+  },
+  "tech": [
+    "Cloudflare Workers",
+    "D1",
+    "JavaScript",
+    "Motion",
+    "Leaflet",
+    "React Native",
+    "Expo",
+    "Cron"
+  ],
+  "features": [
+    "Runs in four countries: Brazil, Portugal, Spain and the US",
+    "Lead collection from OpenStreetMap and Overture Maps",
+    "Outreach written in each country's language",
+    "Sales funnel, analytics dashboard and automatic e-mail queue",
+    "Cron-scheduled robot and automated tests",
+    "16 fixes that came out of a security audit",
+    "Cloudflare Workers back-end with D1 and a React Native (Expo) app"
+  ],
+  "link": {
+    "status": "private-tool"
+  },
+  "featured": false,
+  "order": 1
+}
